@@ -11,3 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.integerResource
+
+@Composable
+fun PageIndicator(modifier: Modifier = Modifier) {
+    val count = integerResource(R.integer.indicator_count)
+    val activeIndex = integerResource(R.integer.indicator_active_index)
