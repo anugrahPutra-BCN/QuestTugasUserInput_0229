@@ -64,3 +64,8 @@ fun BiodataScreen() {
                 )
             }
         }
+
+        // LAPISAN ATAS: Box form yang mengapung di atas Scaffold
+        FloatingForm(modifier = Modifier.align(Alignment.TopCenter))
+    }
+}
