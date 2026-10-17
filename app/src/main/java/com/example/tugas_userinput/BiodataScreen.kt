@@ -85,3 +85,29 @@ private fun FloatingForm(modifier: Modifier = Modifier) {
             experience.isNotBlank() && selectedSkills.isNotEmpty()
 
     val formShape = RoundedCornerShape(dimensionResource(R.dimen.form_corner))
+
+    Box(
+        modifier = modifier
+            .padding(top = dimensionResource(R.dimen.form_offset_top))
+            .fillMaxWidth()
+            .shadow(dimensionResource(R.dimen.form_elevation), formShape)
+            .background(colorResource(R.color.form_background), formShape)
+    ) {
+        Column(
+            modifier = Modifier
+                .verticalScroll(rememberScrollState())
+                .padding(dimensionResource(R.dimen.form_padding)),
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.spacing_field)),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = stringResource(R.string.form_title),
+                color = colorResource(R.color.form_title),
+                fontSize = dimensionResource(R.dimen.text_title).value.sp,
+                fontWeight = FontWeight.Bold
+            )
+            Text(
+                text = stringResource(R.string.form_subtitle),
+                color = colorResource(R.color.form_subtitle),
+                fontSize = dimensionResource(R.dimen.text_subtitle).value.sp
+            )
