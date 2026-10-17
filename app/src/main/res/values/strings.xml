@@ -1,3 +1,31 @@
 <resources>
-    <string name="app_name">Tugas - User Input</string>
+    <string name="app_name">Tugas UserInput</string>
+
+    <string name="form_title">Form Biodata</string>
+    <string name="form_subtitle">Silahkan isi biodata Anda dibawah ini !!!</string>
+    <string name="label_first_name">Nama Depan</string>
+    <string name="label_last_name">Nama Belakang</string>
+    <string name="label_email">Email</string>
+    <string name="label_birth_date">Tgl Lahir</string>
+    <string name="label_experience">Experience</string>
+    <string name="label_skill">Pilih Skill Anda :</string>
+    <string name="button_proceed">Proceed</string>
+
+    <string name="date_format">dd/MM/yyyy</string>
+    <string name="desc_background">Gambar latar neon</string>
+    <string name="desc_pick_date">Pilih tanggal</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Batal</string>
+
+    <string-array name="experience_options">
+        <item>Pemula</item>
+        <item>Menengah</item>
+        <item>Mahir</item>
+    </string-array>
+
+    <string-array name="skill_options">
+        <item>Android</item>
+        <item>UI/UX</item>
+        <item>Web</item>
+    </string-array>
 </resources>
