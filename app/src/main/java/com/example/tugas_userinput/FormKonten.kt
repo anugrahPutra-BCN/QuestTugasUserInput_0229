@@ -122,3 +122,47 @@ fun DateField(
         }
     }
 }
+
+/** Dropdown Experience, pilihannya diambil dari string-array. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ExperienceDropdown(
+    selected: String,
+    onSelected: (String) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    var expanded by remember { mutableStateOf(false) }
+    val options = stringArrayResource(R.array.experience_options)
+
+    ExposedDropdownMenuBox(
+        expanded = expanded,
+        onExpandedChange = { expanded = it },
+        modifier = modifier
+    ) {
+        OutlinedTextField(
+            value = selected,
+            onValueChange = {},
+            readOnly = true,
+            singleLine = true,
+            label = { Text(stringResource(R.string.label_experience)) },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+            shape = RoundedCornerShape(dimensionResource(R.dimen.field_corner)),
+            colors = fieldColors(),
+            modifier = Modifier.menuAnchor()
+        )
+        ExposedDropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false }
+        ) {
+            options.forEach { option ->
+                DropdownMenuItem(
+                    text = { Text(option) },
+                    onClick = {
+                        onSelected(option)
+                        expanded = false
+                    }
+                )
+            }
+        }
+    }
+}
