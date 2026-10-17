@@ -20,4 +20,15 @@ fun PageIndicator(modifier: Modifier = Modifier) {
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.indicator_spacing))
-    )
+    ) {
+        repeat(count) { index ->
+            val color = if (index == activeIndex) R.color.indicator_active
+            else R.color.indicator_inactive
+            Box(
+                modifier = Modifier
+                    .size(dimensionResource(R.dimen.indicator_size))
+                    .background(colorResource(color), CircleShape)
+            )
+        }
+    }
+}
