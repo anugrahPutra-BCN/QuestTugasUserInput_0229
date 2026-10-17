@@ -57,3 +57,10 @@ fun BiodataScreen() {
                         .fillMaxWidth()
                         .height(dimensionResource(R.dimen.image_header_height))
                 )
+                PageIndicator(
+                    modifier = Modifier
+                        .align(Alignment.TopStart)
+                        .padding(dimensionResource(R.dimen.indicator_padding))
+                )
+            }
+        }
