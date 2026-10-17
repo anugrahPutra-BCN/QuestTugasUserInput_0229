@@ -16,3 +16,8 @@ import androidx.compose.ui.res.integerResource
 fun PageIndicator(modifier: Modifier = Modifier) {
     val count = integerResource(R.integer.indicator_count)
     val activeIndex = integerResource(R.integer.indicator_active_index)
+
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.indicator_spacing))
+    )
