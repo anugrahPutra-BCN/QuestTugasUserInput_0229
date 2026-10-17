@@ -37,3 +37,12 @@ import androidx.compose.ui.unit.sp
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+
+@Composable
+private fun fieldColors() = OutlinedTextFieldDefaults.colors(
+    focusedBorderColor = colorResource(R.color.field_border_focused),
+    unfocusedBorderColor = colorResource(R.color.field_border),
+    focusedLabelColor = colorResource(R.color.field_border_focused),
+    focusedTextColor = colorResource(R.color.text_dark),
+    unfocusedTextColor = colorResource(R.color.text_dark)
+)
