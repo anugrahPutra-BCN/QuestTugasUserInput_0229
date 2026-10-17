@@ -129,3 +129,26 @@ private fun FloatingForm(modifier: Modifier = Modifier) {
                 DateField(birthDate, { birthDate = it }, Modifier.weight(1f))
                 ExperienceDropdown(experience, { experience = it }, Modifier.weight(1f))
             }
+
+            Text(
+                text = stringResource(R.string.label_skill),
+                color = colorResource(R.color.text_dark),
+                fontSize = dimensionResource(R.dimen.text_label).value.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.fillMaxWidth()
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                skills.forEach { skill ->
+                    SkillCheckbox(
+                        label = skill,
+                        checked = skill in selectedSkills,
+                        onCheckedChange = { checked ->
+                            if (checked) selectedSkills.add(skill) else selectedSkills.remove(skill)
+                        }
+                    )
+                }
+            }
+
