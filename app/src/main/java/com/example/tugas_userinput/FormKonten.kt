@@ -46,3 +46,24 @@ private fun fieldColors() = OutlinedTextFieldDefaults.colors(
     focusedTextColor = colorResource(R.color.text_dark),
     unfocusedTextColor = colorResource(R.color.text_dark)
 )
+
+/** Kolom isian teks yang dipakai ulang (nama depan, nama belakang, email). */
+@Composable
+fun InputField(
+    @StringRes labelRes: Int,
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    keyboardType: KeyboardType = KeyboardType.Text
+) {
+    OutlinedTextField(
+        value = value,
+        onValueChange = onValueChange,
+        label = { Text(stringResource(labelRes)) },
+        singleLine = true,
+        shape = RoundedCornerShape(dimensionResource(R.dimen.field_corner)),
+        keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
+        colors = fieldColors(),
+        modifier = modifier
+    )
+}
