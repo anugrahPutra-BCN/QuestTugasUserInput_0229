@@ -35,3 +35,25 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.sp
+
+@Composable
+fun BiodataScreen() {
+    Box(modifier = Modifier.fillMaxSize()) {
+
+        // LAPISAN BAWAH: Scaffold berisi gambar latar
+        Scaffold(
+            containerColor = colorResource(R.color.screen_background)
+        ) { innerPadding ->
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.bg_neon),
+                    contentDescription = stringResource(R.string.desc_background),
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(dimensionResource(R.dimen.image_header_height))
+                )
