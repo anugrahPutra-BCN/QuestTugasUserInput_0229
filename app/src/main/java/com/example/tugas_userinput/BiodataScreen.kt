@@ -69,3 +69,19 @@ fun BiodataScreen() {
         FloatingForm(modifier = Modifier.align(Alignment.TopCenter))
     }
 }
+
+@Composable
+private fun FloatingForm(modifier: Modifier = Modifier) {
+    var firstName by remember { mutableStateOf("") }
+    var lastName by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var birthDate by remember { mutableStateOf("") }
+    var experience by remember { mutableStateOf("") }
+    val selectedSkills = remember { mutableStateListOf<String>() }
+    val skills = stringArrayResource(R.array.skill_options)
+
+    val isFormValid = firstName.isNotBlank() && lastName.isNotBlank() &&
+            email.isNotBlank() && birthDate.isNotBlank() &&
+            experience.isNotBlank() && selectedSkills.isNotEmpty()
+
+    val formShape = RoundedCornerShape(dimensionResource(R.dimen.form_corner))
