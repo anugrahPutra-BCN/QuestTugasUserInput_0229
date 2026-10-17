@@ -111,3 +111,21 @@ private fun FloatingForm(modifier: Modifier = Modifier) {
                 color = colorResource(R.color.form_subtitle),
                 fontSize = dimensionResource(R.dimen.text_subtitle).value.sp
             )
+
+            Row(horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.spacing_small))) {
+                InputField(R.string.label_first_name, firstName, { firstName = it }, Modifier.weight(1f))
+                InputField(R.string.label_last_name, lastName, { lastName = it }, Modifier.weight(1f))
+            }
+
+            InputField(
+                labelRes = R.string.label_email,
+                value = email,
+                onValueChange = { email = it },
+                modifier = Modifier.fillMaxWidth(),
+                keyboardType = KeyboardType.Email
+            )
+
+            Row(horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.spacing_small))) {
+                DateField(birthDate, { birthDate = it }, Modifier.weight(1f))
+                ExperienceDropdown(experience, { experience = it }, Modifier.weight(1f))
+            }
