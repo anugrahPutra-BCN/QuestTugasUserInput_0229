@@ -152,3 +152,22 @@ private fun FloatingForm(modifier: Modifier = Modifier) {
                 }
             }
 
+            Button(
+                onClick = { /* aksi setelah form valid, opsional untuk tugas ini */ },
+                enabled = isFormValid,
+                shape = RoundedCornerShape(dimensionResource(R.dimen.field_corner)),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = colorResource(R.color.button_enabled),
+                    contentColor = colorResource(R.color.button_text),
+                    disabledContainerColor = colorResource(R.color.button_disabled),
+                    disabledContentColor = colorResource(R.color.button_text)
+                ),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(dimensionResource(R.dimen.button_height))
+            ) {
+                Text(stringResource(R.string.button_proceed))
+            }
+        }
+    }
+}
