@@ -67,3 +67,58 @@ fun InputField(
         modifier = modifier
     )
 }
+
+/** Kolom tanggal lahir dengan ikon kalender yang membuka DatePicker. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun DateField(
+    value: String,
+    onDateSelected: (String) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    var showDialog by remember { mutableStateOf(false) }
+    val datePickerState = rememberDatePickerState()
+    val pattern = stringResource(R.string.date_format)
+
+    OutlinedTextField(
+        value = value,
+        onValueChange = {},
+        readOnly = true,
+        singleLine = true,
+        label = { Text(stringResource(R.string.label_birth_date)) },
+        trailingIcon = {
+            IconButton(onClick = { showDialog = true }) {
+                Icon(
+                    imageVector = Icons.Default.DateRange,
+                    contentDescription = stringResource(R.string.desc_pick_date)
+                )
+            }
+        },
+        shape = RoundedCornerShape(dimensionResource(R.dimen.field_corner)),
+        colors = fieldColors(),
+        modifier = modifier
+    )
+
+    if (showDialog) {
+        DatePickerDialog(
+            onDismissRequest = { showDialog = false },
+            confirmButton = {
+                TextButton(onClick = {
+                    datePickerState.selectedDateMillis?.let { millis ->
+                        onDateSelected(
+                            SimpleDateFormat(pattern, Locale.getDefault()).format(Date(millis))
+                        )
+                    }
+                    showDialog = false
+                }) { Text(stringResource(R.string.dialog_ok)) }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDialog = false }) {
+                    Text(stringResource(R.string.dialog_cancel))
+                }
+            }
+        ) {
+            DatePicker(state = datePickerState)
+        }
+    }
+}
