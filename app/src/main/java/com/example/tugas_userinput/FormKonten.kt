@@ -166,3 +166,28 @@ fun ExperienceDropdown(
         }
     }
 }
+
+/** Satu checkbox skill. */
+@Composable
+fun SkillCheckbox(
+    label: String,
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
+        Checkbox(
+            checked = checked,
+            onCheckedChange = onCheckedChange,
+            colors = CheckboxDefaults.colors(
+                checkedColor = colorResource(R.color.checkbox_checked),
+                uncheckedColor = colorResource(R.color.checkbox_unchecked)
+            )
+        )
+        Text(
+            text = label,
+            color = colorResource(R.color.text_dark),
+            fontSize = dimensionResource(R.dimen.text_checkbox).value.sp
+        )
+    }
+}
